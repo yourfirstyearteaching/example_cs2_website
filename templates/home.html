@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <td><img src="{{url_for('static', filename='img/generic_logo.png')}}" style="width:100px"></td>
+            <td> <h1>CS2: Data Structures</h1>
+                        Fall 20xx
+                        M/W/F 1-1:50pm, Big Lecture Hall</td>
+        </tr>
+    </table>
+    <hr>
+    <table style="width:100%">
+        <tr>
+            <td style="width:30%">
+                <span class="sidebar-heading">Resources</span><p>
+                <span class="icon">computer_download:small</span> IDE Download<p>
+                <span class="icon">book_1:small</span> Textbook<p>
+                <span class="icon">calendar_ok:small</span> Office Hours Calendar<p>
+                <hr>
+                <span class="sidebar-heading">Exams</span><p>
+                Midterm:<br>
+                <span class="icon">calendar_ok:small</span> Thur. ___ ___, 7-9pm<br>
+                <span class="icon">alarm:small</span> Location: TBA<p>
+
+
+                Final:<br>
+                <span class="icon">calendar_ok:small</span> Fri. ___ ___, 8:30-11:30am<br>
+                <span class="icon">alarm:small</span> Location: TBA<p>
+
+                <span class="sidebar-heading">Course Staff</span><p>
+                <img src="{{url_for('static',filename='img/chris.jpg')}}" style="width:100px"><br>
+                Instructor: Chris Gregg<br>
+                <span class="icon">mail:small</span> Email: <a href="mailto:cgregg@stanford.edu">cgregg@stanford.edu</a><br>
+                <span class="icon">alarm:small</span> Office Hours: Mon/Tue 3-5pm, or by appointment<p>
+                <img src="{{url_for('static',filename='img/jupiter.png')}}" style="width:100px"><br>
+                Head TA: TBA <p>
+                <span class="icon">mail:small</span> Email: TBA<br>
+                <span class="icon">alarm:small</span> Office Hours: TBA<p>
+
+
+            </td>
+            <td style="width:70%">
+            <span class="sidebar-heading">Announcements</span><p>
+            <div class="card">
+            <h2>Welcome!</h2><p>
+                <span class="timefeed">7/13/2018T10:00</span><p>
+                Test
+            </div>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
+

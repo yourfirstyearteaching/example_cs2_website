@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='css/website.css') }}">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}CS2 Fall 20xx{% endblock %}</title>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body class="body">
+        {% include 'navbar.html' %}
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type = "text/javascript" src = "{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+<script type = "text/javascript" src = "{{ url_for('static', filename='js/jquery.timeago.js') }}"></script>
+<script type = "text/javascript" src = "{{ url_for('static',filename='js/website.js') }}"></script>
+<script type = "text/javascript"> websiteInit(); </script>
+
