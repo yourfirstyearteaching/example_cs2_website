@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /home2/ecosimul/public_html/yourfirstyearteaching.com/cs/cs2_template/main.cgi$1 [L]
