@@ -8,7 +8,7 @@ div.card {
     background:#F0F8FF;
     width: 70%;
 }
-.sidebar-heading {
+.red-smallcaps {
     font-size: small;
     text-transform: uppercase;
     color: red;
@@ -20,3 +20,12 @@ div.card {
 .icon {
 }
 
+table.bordered {
+ border-collapse: separate; 
+ border-spacing: 0px;
+}
+
+tr.bordered td, tr.bordered th {
+    border-bottom: 1px solid black;
+    padding: 25px;
+}
