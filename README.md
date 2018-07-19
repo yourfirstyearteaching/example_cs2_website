@@ -8,7 +8,8 @@ To set up a static website, perform the following steps:
 
 1. Clone this repository into a `WWW`, `www`, or `public_html` folder on a server, and `cd` into that folder. E.g.:
 ```git clone https://github.com/yourfirstyearteaching/example_cs2_website.git
-cd example_cs2_website```
+cd example_cs2_website
+```
 
 1. Modify `freeze.py` to refer to your website, e.g.:
 `app.config['FREEZER_BASE_URL'] = 'https://yourSchool.edu/yourCourseNumber/example_cs2_website/'`
