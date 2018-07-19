@@ -12,10 +12,10 @@ pip3 install flask
 pip3 install flask_frozen
 ```
 
-1. Clone this repository into a `WWW`, `www`, or `public_html` folder on a server, and `cd` into that folder. E.g.:
+1. Clone this repository into a `WWW`, `www`, or `public_html` folder on a server, and `cd` into that folder. *(Note: this will put the basic website into your WWW folder, which may not be empty -- you should clone into an empty directory)* and E.g.:
 ```
-git clone https://github.com/yourfirstyearteaching/example_cs2_website.git
-cd example_cs2_website
+git clone https://github.com/yourfirstyearteaching/example_cs2_website.git WWW
+cd WWW 
 ```
 2. Modify `freeze.py` to refer to your website, e.g.:
 ```
