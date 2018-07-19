@@ -1,0 +1,31 @@
+td, th {
+    vertical-align:top;
+}
+div.card {
+    border: 1px solid #BDE8F0;
+    border-radius: 5px;
+    padding: 5px;
+    background:#F0F8FF;
+    width: 70%;
+}
+.red-smallcaps {
+    font-size: small;
+    text-transform: uppercase;
+    color: red;
+}
+.timefeed {
+    font-style: italic;
+}
+
+.icon {
+}
+
+table.bordered {
+ border-collapse: separate; 
+ border-spacing: 0px;
+}
+
+tr.bordered td, tr.bordered th {
+    border-bottom: 1px solid black;
+    padding: 25px;
+}

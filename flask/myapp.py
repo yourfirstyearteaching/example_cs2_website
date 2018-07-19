@@ -5,11 +5,11 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/about')
+@app.route('/about/')
 def about():
     return render_template('about.html')
 
-@app.route('/schedule')
+@app.route('/schedule/')
 def schedule():
     return render_template('schedule.html')
 
