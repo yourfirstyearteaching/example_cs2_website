@@ -7,4 +7,5 @@ freezer = Freezer(app)
 
 if __name__ == '__main__':
     app.config['FREEZER_DESTINATION'] = 'example_cs2_website'
+    app.config['FREEZER_BASE_URL'] = 'https://yourfirstyearteaching.com/cs2/example_cs2_website/'
     freezer.freeze()
