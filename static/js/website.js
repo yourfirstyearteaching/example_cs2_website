@@ -34,6 +34,6 @@ function updateIcons() {
         }
 
             
-        icons[i].innerHTML = "<img src='/static/img/IKONS/PNG/" + sz + "/" + iconName + ".png' style='width: "+width+"px'>";
+        icons[i].innerHTML = "<img src='static/img/IKONS/PNG/" + sz + "/" + iconName + ".png' style='width: "+width+"px'>";
     }
 }
