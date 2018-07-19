@@ -15,6 +15,15 @@ function updateTimes() {
 }
 
 function updateIcons() {
+    // determine website path
+    var scripts = document.getElementsByTagName("script");
+    var staticPath = '';
+    for (var i=0; i < scripts.length; i++) {
+        var src = scripts[i].src;
+        if (src.endsWith('js/website.js')) { 
+            staticPath = src.substr(0,src.indexOf("js/website.js"));
+        }
+    }
     icons = document.getElementsByClassName('icon');
     for (i=0; i < icons.length; i++) {
         let iconInfo = icons[i].innerText.split(":");
@@ -33,7 +42,7 @@ function updateIcons() {
             width = 20;
         }
 
-            
-        icons[i].innerHTML = "<img src='static/img/IKONS/PNG/" + sz + "/" + iconName + ".png' style='width: "+width+"px'>";
+
+        icons[i].innerHTML = "<img src='"+staticPath+"/img/IKONS/PNG/" + sz + "/" + iconName + ".png' style='width: "+width+"px'>";
     }
 }
