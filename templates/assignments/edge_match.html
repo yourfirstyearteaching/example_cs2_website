@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <td><img src="{{url_for('static', filename='img/generic_logo.png')}}" style="width:100px"></td>
+            <td> <h1>Assignment X: Edge Match</h1>
+                     Due: _______, 5pm</td>
+        </tr>
+    </table>
+    <hr>
+</div>
+<h2>Overview</h2>
+In this assignment, you will write a program to solve an <a href="https://en.wikipedia.org/wiki/Edge-matching_puzzle">Edge-matching puzzle</a> with nine tiles. The following images show an unsolved puzzle and a solved puzzle:<p>
+<table style="text-align: center;">
+    <tr>
+        <td>Unsolved</td>
+        <td>Solved</td>
+    </tr>
+    <tr>
+        <td><img src="{{url_for('static',filename='img/assignments/edge_matching/unsolved_dogs.png')}}" style="width:90%"></td>
+        <td><img src="{{url_for('static',filename='img/assignments/edge_matching/solved_dogs.png')}}" style="width:90%"></td>
+    </tr>
+    <tr>
+        <td><i>The Crazy Dog Game</i>, Heye Concept, &copy;1980</td>
+    </tr>
+</table>
+<p>
+Notice that each puzzle piece can be located in one of the nine grid positions, and also can be rotated into four different orientations. This is actually a challenging game to play by hand, but your algorithm will make quick work of finding the solutions!
+<h2>Starter Code</h2>
+Download the starter code here. You will <a href="http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1186//handouts/qt-creator.html">
+    need to have Qt Creator installed, along with the requisite C++ build environment.</a>
+<p>
+<div style="text-align: center;">
+<span class="icon">computer_download:extralarge</span><br>
+Starter Code
+</div>
+
+<h2>Problem Description</h2>
+<i>Edge-matching puzzles</i> involve matching up aligned edges on polygons (typically squares, although it is possible to design an edge-matching puzzle for any polygon or irregular shape that can be <a href="https://en.wikipedia.org/wiki/Tessellation"><i>tessellated</i></a>). The puzzle you will be writing a program to solve is a set of nine tiles that fit into a 3 x 3 grid.<p>
+
+We provide you with starter code in <span class="filename">tile-match.cpp</span> that implements the user interface for the game. We have also provided you with a graphical version of the game that you can play yourself to see how it works. The goal of the game is to place all nine tiles into the grid such that all the edges align properly. Each edge can only match with one corresponding edge on another tile. For a 3 x 3 puzzle, there are four different edge combinations, with each combination having a distinct <i>top</i> and </i>bottom</i> or <i>left</i> and <i>right</i>. For example, the following vintage puzzle given out for advertising a brand of cola has four colors as the edges, green, red, blue, and yellow. Each cola bottle also has a top and a bottom. So, for example, a red top only matches with a red bottom, and two red bottoms do not make a match, as show in the top right corner of the image.<p>
+<div style="text-align: center">
+    <img src="{{url_for('static',filename='img/assignments/edge_matching/unsolved_cola.png')}}" style="width:40%"></td>
+</div>
+<p>
+The following image shows one solution to the cola puzzle:<p>
+<div style="text-align: center">
+    <img src="{{url_for('static',filename='img/assignments/edge_matching/solved_cola.png')}}" style="width:40%"></td>
+</div>
+<p>
+In real life, the puzzle is solved by manually matching and rotating tiles until all of the tiles line up. A brute force approach would involve trying 95,126,814,720 (over 95 billion) tile positions and rotations. This is because each tile can be in one of nine positions (<code>9!</code>) and each tile can be rotated in each position four different ways (<code>4<sup>9</sup></code>), and <code>9! * 4<sup>9</sup> = 95,126,814,720</code>).
+<p>
+Of course, a human player won't try nine billion different combinations, because many combinations cannot produce a solution, and there is no need to permute tiles in one part of the board when other parts of the board are already incorrect. When you write your solution, you should also take this into consideration -- even though computers are fast, your solution should not continue to search in a particular way if a solution down that search path can never be found.
+<p>
+Matching tiles do not have to be strictly image-based. For example, the puzzle below is solved by matching up numbers in combinations that add up to 10. So, for example, a matching set of edges would have a 3 and a 7 (the puzzle below is not solved, though it does have some matching edges):<p>
+<div style="text-align: center">
+    <img src="{{url_for('static',filename='img/assignments/edge_matching/unsolved_tens.png')}}" style="width:40%"></td>
+</div>
+<p>
+
+<h2>Implementation Details</h2>
+In order to describe an edge, we must decide on a code that can be used to differentiate edges, and to describe two edges that match. We have chosen an uppercase and lowercase representation for each edge, such that a matching edge will have an uppercase letter on one tile's edge (e.g., "A") and a lowercase letter on the other tile's matching edge (e.g., "a"). As an example, the following tiles have been labeled. The letters themselves are arbitrary, but must be the same code for each tile in a particular puzzle. In this case, a yellow top is "A", yellow bottom is "a", green top is "B", green bottom is "b", etc. <p>
+<table style="text-align: center;">
+    <tr>
+        <td>Tile 1</td>
+        <td>Tile 2</td>
+    </tr>
+    <tr>
+        <td><img src="{{url_for('static',filename='img/assignments/edge_matching/AcdB_labeled.png')}}" style="width:80%"></td>
+        <td><img src="{{url_for('static',filename='img/assignments/edge_matching/baCD_labeled.png')}}" style="width:80%"></td>
+    </tr>
+</table>
+
+Using this code, we can describe a single tile with four edge letters. Starting with the top of the tile, and then progresing <i>clockwise</i>, tiles 1 and 2 above can be labeled as follows:
+<p>
+Tile 1:
+<pre>
+A c d B
+</pre>
+<p>
+Tile 2:
+<pre>
+b a C D
+</pre>
+<p>
+We can also add an orientation, based on how many times the tile has been rotated in a clockwise direction. Each of the above tiles has orientation <code>0</code>, but we could rotate Tile 1 once (as shown below) and it would now be represented by <code>A c d B 1</code>:<p>
+<img src="{{url_for('static',filename='img/assignments/edge_matching/AcdB1_labeled.png')}}" style="width:20%">
+<p>
+
+Although the tile could also be labeled starting with <code>B</code> instead of adding an orientation, we will keep the original labeling and use the orientation to describe how the tile has been rotated.
+<p>
+You must implement the following functions to complete the puzzle solver. Some of the functions are in the <code>Tile.cpp</code> file (and the <code>Tile</code> class, and others are in the <code>tile-match.cpp</code> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
+<pre>
+Tile::<strong>Tile</strong>(string s)
+</pre>
+<p>
+Implement the constructor for a <code>Tile</code> that accepts a string in <i>either</i> of the following forms:
+<pre>
+A b C d
+</pre>
+<p>
+or
+<p>
+<pre>
+A b C d 2
+</pre>
+<p>
+In other words, the rotation is optional. If there is no rotation, the default rotation will be <code>0</code>. We have written the default constructor for you, so you can see what is expected from the constructor you will write.
+<p>
+
+
+<h2>Style Details</h2>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+{% endblock %}
+

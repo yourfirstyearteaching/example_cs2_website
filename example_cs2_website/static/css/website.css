@@ -29,3 +29,15 @@ tr.bordered td, tr.bordered th {
     border-bottom: 1px solid black;
     padding: 25px;
 }
+
+pre {
+    background-color: #f8f8ff;
+    border: 1px dashed #ccccff;
+    border-radius: 4px;
+}
+
+.filename {
+    color: #220066;
+    font-weight: bold;
+}
+

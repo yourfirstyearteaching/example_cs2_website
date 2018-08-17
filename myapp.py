@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,6 +12,13 @@ def about():
 @app.route('/schedule/')
 def schedule():
     return render_template('schedule.html')
+
+@app.route('/assignents/')
+@app.route('/assignments/<path:assign>')
+def assignments(assign=None):
+    if not assign:
+        return render_template("/assignments/assignments.html")
+    return render_template("/assignments/"+assign)
 
 if __name__ == '__main__':
     app.run()
