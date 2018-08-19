@@ -5,7 +5,7 @@
         <tr>
             <td><img src="{{url_for('static', filename='img/generic_logo.png')}}" style="width:100px"></td>
             <td> <h1>Assignment X: Edge Match</h1>
-                     Due: _______, 5pm</td>
+                Due: _______, 5pm</td>
         </tr>
     </table>
     <hr>
@@ -32,8 +32,8 @@ Download the starter code here. You will <a href="http://web.stanford.edu/class/
     need to have Qt Creator installed, along with the requisite C++ build environment.</a>
 <p>
 <div style="text-align: center;">
-<span class="icon">computer_download:extralarge</span><br>
-Starter Code
+    <span class="icon">computer_download:extralarge</span><br>
+    Starter Code
 </div>
 
 <h2>Problem Description</h2>
@@ -58,6 +58,9 @@ Matching tiles do not have to be strictly image-based. For example, the puzzle b
     <img src="{{url_for('static',filename='img/assignments/edge_matching/unsolved_tens.png')}}" style="width:40%"></td>
 </div>
 <p>
+Your solution will populate a <code>Vector&lt;Tile&gt;</code> with all of the possible solutions for a particular puzzle. Note that the number of solutions for a puzzle will always be a multiple of four, as each full puzzle can simply be rotated 90&deg;.<p>
+
+For your solution, you will be able to run the program in two different ways: the first is to find the solutions one at a time, and show them graphically (also populating the solutions vector). The second is to time how long it takes to find all possible solutions for a given set of tiles. You should strive to make your solution as fast (or faster!) than our solution, and we will provide you with sample times to compare against.
 
 <h2>Implementation Details</h2>
 In order to describe an edge, we must decide on a code that can be used to differentiate edges, and to describe two edges that match. We have chosen an uppercase and lowercase representation for each edge, such that a matching edge will have an uppercase letter on one tile's edge (e.g., "A") and a lowercase letter on the other tile's matching edge (e.g., "a"). As an example, the following tiles have been labeled. The letters themselves are arbitrary, but must be the same code for each tile in a particular puzzle. In this case, a yellow top is "A", yellow bottom is "a", green top is "B", green bottom is "b", etc. <p>
@@ -94,22 +97,160 @@ You must implement the following functions to complete the puzzle solver. Some o
 <pre>
 Tile::<strong>Tile</strong>(string s)
 </pre>
-<p>
-Implement the constructor for a <code>Tile</code> that accepts a string in <i>either</i> of the following forms:
-<pre>
-A b C d
+<ul>
+    <li>
+        Implement the constructor for a <code>Tile</code> that accepts a string in <i>either</i> of the following forms:
+        <pre>
+    A b C d
 </pre>
-<p>
-or
-<p>
+        <p>
+        or
+        <p>
+        <pre>
+    A b C d 2
+</pre>
+        <p>
+        In other words, the rotation is optional. If there is no rotation, the default rotation will be <code>0</code>. We have written the default constructor for you, so you can see what is expected from the constructor you will write.
+        <p>
+        Note: the order of the letters in the string should not be modified. In other words, the string <code>"A b C d 2"</code> should be represented as top:<code>A</code>, right:<code>b</code>, bottom:<code>C</code>, and left:<code>d</code>, with a rotation of 2, clockwise. When shown, that tile would have <code>C</code> on the top, <code>d</code> on the right, <code>A</code> on the bottom, and <code>b</code> on the left.
+        <p>
+    </li>
+</ul>
 <pre>
+int Tile::<b>getOrientation</b>()
+
+void Tile::<b>setOrientation</b>(int orientation)
+</pre>
+<ul>
+    <li>
+        These two helper functions simply get and set the orientation.
+    </li>
+</ul>
+<pre>
+bool Tile::<b>isMatched</b>(Tile &other, Connection otherLocation)
+</pre>
+<ul>
+    <li>The <code>isMatched</code> function returns <code>true</code> if the <code>other</code> tile is a match in the location relative to the tile being checked. The <code>Connection</code> type is an <code>enum</code>, defined in <code>Tile.h</code> as follows:<p>
+        <pre>
+enum <b>Connection</b> {
+    ABOVE,
+    RIGHT,
+    BELOW,
+    LEFT,
+};
+</pre>
+        <p>
+        So, if a <code>Tile t</code> instance was called as follows:
+       <pre>
+t.<b>isMatched</b>(otherTile, ABOVE)
+</pre>
+then the function would return <code>true</code> if <code>otherTile</code> matches <code>t</code> when <code>otherTile</code> is above <code>t</code> in the grid.
+        <p>
+    </li>
+</ul>
+<pre>
+string Tile::<b>sidesStr</b>() const;
+</pre>
+<ul>
+    <li>The <code>sideStr</code> function should return a string in the form <code>"AbCd"</code>. This string is used to identify a tile, and <i>does not</i> include information about the orientation of the tile.
+    </li>
+</ul>
+<pre>
+ostream &operator<b>&lt;&lt;</b>(ostream &out, Tile const &tile)
+</pre>
+<ul>
+    <li>The overloaded <code>&lt;&lt;</code> function is similar to <code>sidesStr</code>, but it is formatted with spaces and includes the orientation. It should output a string in the form <code>"A b C d (2)"</code>. Once you have overloaded this function, you will be able to use <code>cout</code> to print out a <code>Vector&lt;Tile&gt;</code> or <code>Grid&lt;Tile&gt;</code>, and this may be helpful to you as you debug your program.
+    </li>
+</ul>
+<pre>
+bool <b>allMatch</b>(Grid<Tile> &tiles);
+</pre>
+<ul>
+    <li>
+        This function, located in <code>tile-match.cpp</code> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
+    </li>
+</ul>
+<pre>
+Vector&lt;Grid&lt;Tile&gt;&gt; <b>solvePuzzle</b>(TileGrid &tg, bool timeIt = false);
+</pre>
+<ul>
+    <li>
+        This function, located in <code>tile-match.cpp</code> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
+        If the <code>timeIt</code> parameter is <code>true</code>, your function should suppress output, drawing tiles, and asking for user input. In other words, it should solve the puzzle as quickly as it can.<p>
+        If the <code>timeIt</code> parameter is <code>false</code>, your function should draw each solved puzzle it finds (see below for the function to draw the tiles), and it should also ask the user if they want to save the solved board to a file. See below for examples of user input and output to see how you should format the user interface for your solver function.
+        <p>
+        This is the only function that will require you to interact with the <code>TileGrid</code> class, which keeps track of a <code>Grid&lt;Tile&gt;</code>. There are five functions you will need from the <code>Grid&lt;Tile&gt;</code> class. This class, which we have written for you, handles the graphical interface with the tiles, and holds the <code>Grid&lt;Tile&gt;</code>. Notice that the <code>getGrid</code> function below returns a <b>reference</b> to a Grid -- this is important to ensure that the <code>TileGrid</code> instance can draw and save the tiles:
+        <pre>
+Vector&lt;Tile&gt; TileGrid::<b>getTileVec</b>();
+</pre>
+        <ul>
+            <li>
+                This function returns a vector of all the tiles in the game.
+            </li>
+        </ul>
+        <p>
+        <pre>
+Grid&lt;Tile&gt; & TileGrid::<b>getGrid</b>();
+</pre>
+        <ul>
+            <li>
+                This function returns a reference to the Grid of Tiles.
+            </li>
+        </ul>
+        <p>
+        <pre>
+void TileGrid::<b>drawTiles</b>();
+</pre>
+        <ul>
+            <li>
+                This function draws the tiles to the screen. You should call this in your recursive <code>solvePuzzle</code> function every time you have a completed puzzle (but only if you are not timing your solver -- you don't want to take time drawing the grid on the screen when you are trying to see how fast your solver works).
+            </li>
+        </ul>
+        <p>
+        <pre>
+bool TileGrid::<b>saveGrid</b>(string filename);
+</pre>
+        <ul>
+            <li>
+                This function saves the tile grid to a file, in the form:
+                <pre>
 A b C d 2
+B a D c 3
+...etc
 </pre>
-<p>
-In other words, the rotation is optional. If there is no rotation, the default rotation will be <code>0</code>. We have written the default constructor for you, so you can see what is expected from the constructor you will write.
-<p>
+                Saved files can be loaded with the <code>TileGrid::populate</code> function, which is used in the <code>loadPuzzle</code> function, which has already been written for you.
+            </li>
+        </ul>
+        <p>
+        <pre>
+bool TileGrid::<b>toString</b>();
+</pre>
+        <ul>
+            <li>
+                This function prints the tile grid to the console, in the form:
+                <pre>
+A b C d 2
+B a D c 3
+...etc
+</pre>
+            </li>
+        </ul>
+    </li>
+</ul>
 
-
+<h2>Example Games</h2>
+<table style="text-align: center;">
+    <tr>
+        <td style="padding: 10px;"><a href="{{url_for('static', filename='examples/cola1.txt')}}"><span class="icon">browser:large</span><br>
+            Example 1: cola1.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="{{url_for('static', filename='examples/cola2.txt')}}"><span class="icon">browser:large</span><br>
+            Example 2: cola2.txt 
+            </a>
+        </td>
+    </tr>
+</table>
 <h2>Style Details</h2>
 
 <h2>Frequently Asked Questions (FAQ)</h2>
