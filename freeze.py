@@ -8,7 +8,7 @@ freezer = Freezer(app)
 
 @freezer.register_generator
 def assignments_gen():
-    return ['/assignments/'+x for x in os.listdir('templates/assignments') if x.endswith('html')]
+    return ['/assignments/'+x+'/' for x in os.listdir('templates/assignments') if x.endswith('html')]
 
 if __name__ == '__main__':
     app.config['FREEZER_DESTINATION'] = 'example_cs2_website'
