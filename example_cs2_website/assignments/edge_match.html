@@ -124,6 +124,12 @@ Download the starter code here. You will <a href="http://web.stanford.edu/class/
     Starter Code
 </div>
 
+<div style="text-align: center;">
+    <span class="icon">computer_download:extralarge</span><br>
+    Demo Program (Mac) 
+</div>
+
+
 <h2>Problem Description</h2>
 <i>Edge-matching puzzles</i> involve matching up aligned edges on polygons (typically squares, although it is possible to design an edge-matching puzzle for any polygon or irregular shape that can be <a href="https://en.wikipedia.org/wiki/Tessellation"><i>tessellated</i></a>). The puzzle you will be writing a program to solve is a set of nine tiles that fit into a 3 x 3 grid.<p>
 
@@ -337,12 +343,54 @@ B a D c 3
             Example 2: cola2.txt 
             </a>
         </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: dogs1.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: dogs2.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: tens.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: penguins.txt 
+            </a>
+        </td>
     </tr>
 </table>
 <h2>Style Details</h2>
+You should follow the course style guide for expected coding style. You should, as necessary, decompose your solution into short functions commensurate with the problem you are solving. The following information specifically relates to the style of this assignment:<p>
+
+<i>Recursion and Backtracking</i>: You must write a recursive function to solve the puzzle. You can write as many helper functions as you need for the solution, but you must use recursion, and likely recursive backtracking to solve the problem efficiently. Your solution should be efficient and should <i>not</i> follow paths that are guaranteed to not produce solutions. You must figure out how to do this, but your grade will depend on whether you have an efficient solution. You can see the example runs of the program above to see roughly how long a decent solution should take to find all solutions to a puzzle.<p>
+
+<i>Variables</i>: This is the first main assignment where you are using classes. You are allowed to add private instance variables to the <code>Tile</code> class, but you should not need to. You should <i>not</i> add any global variables, and you should use proper paramater passing strategies to move variables through your program.<p>
+
+<i>Commenting</i>: You should have a function comment at the top of each function. You should also have inline comments as necessary in your code, especially where your code may be difficult to understand without context.
 
 <h2>Frequently Asked Questions (FAQ)</h2>
+<b>Q: How do I run the example program?</b><p>
+A: On a Mac, you can click on the "run-tile-match.sh" file, and the program should open.<p>
 
+
+<b>Q: When I save a solved game in the program, where does it go?</b><p>
+
+A: The file is saved in the <code>build-tile-match...</code> folder, which is most likely one folder up from your <code>TileMatch</code> project folder. If you want to use your solution in future versions of the game, move it into the <code>puzzles/puzzleType/</code> (e.g., for a dogs puzzle, move it into the <code>puzzles/dogs/</code> folder. You can also move it into the folder in your project directory, but you will likely have to delete the <code>tile-match.pro</code> file and restart, re-build the tile-match program for it to automatically go into the build folder when you run the program again.<p>
+
+<b>Q: My recursive strategy should work, but the program never finishes!</b><p>
+
+A: You are probably not stopping the recursion when it goes down a path that is guaranteed to not produce a solution. Look at your recursive calls and play a few versions of the game manually to convince yourself that you aren't recursing too much.<p>
+
+<h2>Possible Extensions</h2>
+If you want to write one or more extensions for this assignment, here are some ideas:<br>
+<ul>
+    <li><b>Add a "hint" mode to the GUI game.</b> If you are playing manually, you can add a hint button to allow the user to get a tile placed automatically for them. This will involve modifying the <code>PlayGame</code> class. See the documentation for the <code>GButton</code> class to add a button to the window.</li>
+    <li><b>Change the <code>&lt;&lt;</code> overload function to print a text-based version of the tiles.</b> If the user is playing in text mode, without graphics, it might be nice to have a function that will print the tile out in a more user-friendly way. You can also add a function to the <code>TileGrid</code> class to print the entire grid in text-based form.</li>
+    <li><b>Add your own tiles.</b> In the <code>puzzles</code> folder, you will find individual puzzle folders (e.g., <code>dogs</code>), which have images and a basic text file with the starting tile orientations. If you want, you can make your own puzzles by breaking up an image into multiple tiles. See <a href="http://www.penguin.com/static/packages/us/yr-microsites/crazygamesolution/">here for many solved puzzles you can break up.</a> You will need a graphics program, such as <a href="https://www.gimp.org">Gimp</a> (free) or Photoshop ($) to break up the images. In Gimp, you can follow the instructions <a href="https://graphicdesign.stackexchange.com/a/30012">here</a> to easily break an image into tiles.</li>
+    <li><b>Expand the game to include 4x4 grids, or 2x2 grids (or more).</b> This will take some work in the <code>TileGrid.h</code> header and <code>Tile-Grid.cpp</code> class, but it is doable. If you write your <code>Tile</code> class efficiently, you should not need to update it.</li>
+</ul>
 
         </div>
         <hr>

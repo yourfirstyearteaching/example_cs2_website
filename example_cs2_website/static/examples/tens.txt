@@ -1,0 +1,193 @@
+Welcome to the tile match game!
+1. cola
+2. dogs
+3. penguins
+4. tens
+5. turtles
+Choose a number: 4
+
+Please choose the number of the file you would like to load:
+
+1. tens.txt
+Choose a number: 1
+
+Beginning tiles: 
+A b c D 0
+B C D A 0
+d c B A 0
+b a B C 0
+c D b A 0
+c a D B 0
+d C D A 0
+d a B C 0
+a b D C 0
+
+Would you like to play the game manually (y/N)? n
+Would you like to time your solution (y/N)? y
+Press <enter> to start searching for solutions. 
+
+Time: 291ms
+Found 16 solutions:
+A b c D 0
+B C D A 1
+d c B A 1
+d C D A 1
+d a B C 1
+b a B C 1
+a b D C 0
+c a D B 0
+c D b A 0
+
+A b c D 0
+d c B A 3
+a b D C 3
+b a B C 3
+d a B C 3
+c a D B 3
+d C D A 3
+B C D A 3
+c D b A 3
+
+A b c D 0
+d a B C 3
+c a D B 3
+b a B C 3
+d c B A 3
+B C D A 3
+d C D A 3
+a b D C 3
+c D b A 0
+
+d c B A 0
+d C D A 2
+a b D C 1
+c D b A 2
+c a D B 2
+A b c D 2
+b a B C 3
+B C D A 1
+d a B C 1
+
+d c B A 2
+b a B C 2
+c D b A 1
+B C D A 2
+d a B C 2
+c a D B 1
+A b c D 1
+d C D A 2
+a b D C 1
+
+b a B C 2
+c D b A 1
+d c B A 3
+B C D A 0
+c a D B 1
+d C D A 1
+d a B C 0
+A b c D 1
+a b D C 0
+
+c D b A 1
+B C D A 1
+d C D A 1
+c a D B 1
+d a B C 1
+b a B C 1
+a b D C 1
+d c B A 1
+A b c D 2
+
+c D b A 2
+c a D B 2
+a b D C 2
+b a B C 3
+d a B C 3
+d C D A 3
+d c B A 3
+B C D A 3
+A b c D 2
+
+c D b A 2
+a b D C 1
+d C D A 1
+B C D A 1
+d c B A 1
+b a B C 1
+c a D B 1
+d a B C 1
+A b c D 2
+
+c a D B 0
+B C D A 0
+c D b A 1
+d a B C 0
+d c B A 0
+a b D C 0
+A b c D 1
+b a B C 0
+d C D A 0
+
+d C D A 2
+b a B C 2
+A b c D 3
+B C D A 2
+d a B C 2
+d c B A 2
+c D b A 2
+c a D B 2
+a b D C 2
+
+d C D A 2
+b a B C 2
+A b c D 3
+a b D C 2
+d c B A 2
+d a B C 2
+c D b A 3
+B C D A 2
+c a D B 2
+
+d a B C 3
+B C D A 3
+b a B C 1
+A b c D 0
+c a D B 0
+c D b A 0
+a b D C 3
+d C D A 0
+d c B A 2
+
+a b D C 0
+c a D B 0
+c D b A 0
+d c B A 0
+d a B C 0
+B C D A 0
+A b c D 1
+b a B C 0
+d C D A 0
+
+a b D C 2
+A b c D 3
+d a B C 2
+d C D A 3
+c a D B 3
+B C D A 2
+d c B A 1
+c D b A 3
+b a B C 0
+
+a b D C 3
+d C D A 0
+A b c D 3
+c a D B 3
+d a B C 0
+B C D A 0
+c D b A 3
+b a B C 0
+d c B A 0
+
+Would you like to play again (Y/n)? n
+Thank you for plaing the tile match game!
+
