@@ -33,19 +33,19 @@ Download the starter code here. You will <a href="http://web.stanford.edu/class/
 <p>
 <div style="text-align: center;">
     <span class="icon">computer_download:extralarge</span><br>
-    Starter Code
+    <a href="{{url_for('static',filename='assignment_files/Edge-Match.zip')}}">Starter Code</a>
 </div>
 
 <div style="text-align: center;">
     <span class="icon">computer_download:extralarge</span><br>
-    Demo Program (Mac) 
+    <a href="{{url_for('static',filename='assignment_files/Edge-Match-Mac-Demo.zip')}}">Demo Program (Mac)</a>
 </div>
 
 
 <h2>Problem Description</h2>
 <i>Edge-matching puzzles</i> involve matching up aligned edges on polygons (typically squares, although it is possible to design an edge-matching puzzle for any polygon or irregular shape that can be <a href="https://en.wikipedia.org/wiki/Tessellation"><i>tessellated</i></a>). The puzzle you will be writing a program to solve is a set of nine tiles that fit into a 3 x 3 grid.<p>
 
-We provide you with starter code in <span class="filename">tile-match.cpp</span> that implements the user interface for the game. We have also provided you with a graphical version of the game that you can play yourself to see how it works. The goal of the game is to place all nine tiles into the grid such that all the edges align properly. Each edge can only match with one corresponding edge on another tile. For a 3 x 3 puzzle, there are four different edge combinations, with each combination having a distinct <i>top</i> and </i>bottom</i> or <i>left</i> and <i>right</i>. For example, the following vintage puzzle given out for advertising a brand of cola has four colors as the edges, green, red, blue, and yellow. Each cola bottle also has a top and a bottom. So, for example, a red top only matches with a red bottom, and two red bottoms do not make a match, as show in the top right corner of the image.<p>
+We provide you with starter code in <span class="filename">edge-match.cpp</span> that implements the user interface for the game. We have also provided you with a graphical version of the game that you can play yourself to see how it works. The goal of the game is to place all nine tiles into the grid such that all the edges align properly. Each edge can only match with one corresponding edge on another tile. For a 3 x 3 puzzle, there are four different edge combinations, with each combination having a distinct <i>top</i> and </i>bottom</i> or <i>left</i> and <i>right</i>. For example, the following vintage puzzle given out for advertising a brand of cola has four colors as the edges, green, red, blue, and yellow. Each cola bottle also has a top and a bottom. So, for example, a red top only matches with a red bottom, and two red bottoms do not make a match, as show in the top right corner of the image.<p>
 <div style="text-align: center">
     <img src="{{url_for('static',filename='img/assignments/edge_matching/unsolved_cola.png')}}" style="width:40%"></td>
 </div>
@@ -99,7 +99,7 @@ We can also add an orientation, based on how many times the tile has been rotate
 
 Although the tile could also be labeled starting with <code>B</code> instead of adding an orientation, we will keep the original labeling and use the orientation to describe how the tile has been rotated.
 <p>
-You must implement the following functions to complete the puzzle solver. Some of the functions are in the <code>Tile.cpp</code> file (and the <code>Tile</code> class, and others are in the <code>tile-match.cpp</code> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
+You must implement the following functions to complete the puzzle solver. Some of the functions are in the <code>Tile.cpp</code> file (and the <code>Tile</code> class, and others are in the <code>edge-match.cpp</code> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
 <pre>
 Tile::<strong>Tile</strong>(string s)
 </pre>
@@ -173,7 +173,7 @@ bool <b>allMatch</b>(Grid<Tile> &tiles);
 </pre>
 <ul>
     <li>
-        This function, located in <code>tile-match.cpp</code> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
+        This function, located in <code>edge-match.cpp</code> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
     </li>
 </ul>
 <pre>
@@ -181,7 +181,7 @@ Vector&lt;Grid&lt;Tile&gt;&gt; <b>solvePuzzle</b>(TileGrid &tg, bool timeIt = fa
 </pre>
 <ul>
     <li>
-        This function, located in <code>tile-match.cpp</code> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
+        This function, located in <code>edge-match.cpp</code> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
         If the <code>timeIt</code> parameter is <code>true</code>, your function should suppress output, drawing tiles, and asking for user input. In other words, it should solve the puzzle as quickly as it can.<p>
         If the <code>timeIt</code> parameter is <code>false</code>, your function should draw each solved puzzle it finds (see below for the function to draw the tiles), and it should also ask the user if they want to save the solved board to a file. See below for examples of user input and output to see how you should format the user interface for your solver function.
         <p>
@@ -284,12 +284,12 @@ You should follow the course style guide for expected coding style. You should, 
 
 <h2>Frequently Asked Questions (FAQ)</h2>
 <b>Q: How do I run the example program?</b><p>
-A: On a Mac, you can click on the "run-tile-match.sh" file, and the program should open.<p>
+A: On a Mac, you can click on the "run-edge-match.sh" file, and the program should open.<p>
 
 
 <b>Q: When I save a solved game in the program, where does it go?</b><p>
 
-A: The file is saved in the <code>build-tile-match...</code> folder, which is most likely one folder up from your <code>TileMatch</code> project folder. If you want to use your solution in future versions of the game, move it into the <code>puzzles/puzzleType/</code> (e.g., for a dogs puzzle, move it into the <code>puzzles/dogs/</code> folder. You can also move it into the folder in your project directory, but you will likely have to delete the <code>tile-match.pro</code> file and restart, re-build the tile-match program for it to automatically go into the build folder when you run the program again.<p>
+A: The file is saved in the <code>build-edge-match...</code> folder, which is most likely one folder up from your <code>TileMatch</code> project folder. If you want to use your solution in future versions of the game, move it into the <code>puzzles/puzzleType/</code> (e.g., for a dogs puzzle, move it into the <code>puzzles/dogs/</code> folder. You can also move it into the folder in your project directory, but you will likely have to delete the <code>edge-match.pro</code> file and restart, re-build the edge-match program for it to automatically go into the build folder when you run the program again.<p>
 
 <b>Q: My recursive strategy should work, but the program never finishes!</b><p>
 
