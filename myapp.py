@@ -16,9 +16,10 @@ def schedule():
 @app.route('/assignents/')
 @app.route('/assignments/<path:assign>')
 def assignments(assign=None):
+    print(request.script_root)
     if not assign:
-        return render_template("/assignments/assignments.html")
-    return render_template("/assignments/"+assign)
+        return render_template("assignments/assignments.html")
+    return render_template("assignments/"+assign)
 
 if __name__ == '__main__':
     app.run()
