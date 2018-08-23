@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" media="screen" href = "/cs/example_cs2_website/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href = "/cs/example_cs2_website/static/css/website.css">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8">
+        <title>CS2 Fall 20xx</title>
+        
+        
+    </head>
+    <body class="body">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">CS2</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Lectures
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    Week 1
+                    <a class="dropdown-item" href="static/Lectures/01-Welcome">Lecture 1 - Welcome!</a>
+                    <a class="dropdown-item" href="#">Lecture 2 - C++ Functions and Strings</a>
+                    <a class="dropdown-item" href="#">Lecture 3 - Vectors</a>
+                    <div class="dropdown-divider"></div>
+                    Week 2
+                    <a class="dropdown-item" href="#">Lecture 4 - File I/O</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Handouts
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Handout 1 - Syllabus</a>
+                    <a class="dropdown-item" href="#">Handout 2 - Honor Code</a>
+                    <a class="dropdown-item" href="#">Handout 3 - Style Guide</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Assignments
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Assignment 0 - Intro and Tools</a>
+                    <a class="dropdown-item" href="/assignments/edge_match.html">Assignment X - Edge Match</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recitation 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Recitation Signup</a>
+                    <a class="dropdown-item" href="#">Week 1 Problems</a>
+                    <a class="dropdown-item" href="#">Week 1 Problems Solutions</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tools 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">IDE Download</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="schedule">Schedule<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+        <div class="container">
+            
+<div>
+    <table>
+        <tr>
+            <td><img src="/cs/example_cs2_website/static/img/generic_logo.png" style="width:100px"></td>
+            <td> <h1>Assignment X: Edge Match</h1>
+                Due: _______, 5pm</td>
+        </tr>
+    </table>
+    <hr>
+</div>
+<h2>Overview</h2>
+In this assignment, you will write a program to solve an <a href="https://en.wikipedia.org/wiki/Edge-matching_puzzle">Edge-matching puzzle</a> with nine tiles. The following images show an unsolved puzzle and a solved puzzle:<p>
+<table style="text-align: center;">
+    <tr>
+        <td>Unsolved</td>
+        <td>Solved</td>
+    </tr>
+    <tr>
+        <td><img src="/cs/example_cs2_website/static/img/assignments/edge_matching/unsolved_dogs.png" style="width:90%"></td>
+        <td><img src="/cs/example_cs2_website/static/img/assignments/edge_matching/solved_dogs.png" style="width:90%"></td>
+    </tr>
+    <tr>
+        <td><i>The Crazy Dog Game</i>, Heye Concept, &copy;1980</td>
+    </tr>
+</table>
+<p>
+Notice that each puzzle piece can be located in one of the nine grid positions, and also can be rotated into four different orientations. This is actually a challenging game to play by hand, but your algorithm will make quick work of finding the solutions!
+<h2>Starter Code</h2>
+Download the starter code here. You will <a href="http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1186//handouts/qt-creator.html">
+    need to have Qt Creator installed, along with the requisite C++ build environment.</a>
+<p>
+<div style="text-align: center;">
+    <span class="icon">computer_download:extralarge</span><br>
+    Starter Code
+</div>
+
+<div style="text-align: center;">
+    <span class="icon">computer_download:extralarge</span><br>
+    Demo Program (Mac) 
+</div>
+
+
+<h2>Problem Description</h2>
+<i>Edge-matching puzzles</i> involve matching up aligned edges on polygons (typically squares, although it is possible to design an edge-matching puzzle for any polygon or irregular shape that can be <a href="https://en.wikipedia.org/wiki/Tessellation"><i>tessellated</i></a>). The puzzle you will be writing a program to solve is a set of nine tiles that fit into a 3 x 3 grid.<p>
+
+We provide you with starter code in <span class="filename">tile-match.cpp</span> that implements the user interface for the game. We have also provided you with a graphical version of the game that you can play yourself to see how it works. The goal of the game is to place all nine tiles into the grid such that all the edges align properly. Each edge can only match with one corresponding edge on another tile. For a 3 x 3 puzzle, there are four different edge combinations, with each combination having a distinct <i>top</i> and </i>bottom</i> or <i>left</i> and <i>right</i>. For example, the following vintage puzzle given out for advertising a brand of cola has four colors as the edges, green, red, blue, and yellow. Each cola bottle also has a top and a bottom. So, for example, a red top only matches with a red bottom, and two red bottoms do not make a match, as show in the top right corner of the image.<p>
+<div style="text-align: center">
+    <img src="/cs/example_cs2_website/static/img/assignments/edge_matching/unsolved_cola.png" style="width:40%"></td>
+</div>
+<p>
+The following image shows one solution to the cola puzzle:<p>
+<div style="text-align: center">
+    <img src="/cs/example_cs2_website/static/img/assignments/edge_matching/solved_cola.png" style="width:40%"></td>
+</div>
+<p>
+In real life, the puzzle is solved by manually matching and rotating tiles until all of the tiles line up. A brute force approach would involve trying 95,126,814,720 (over 95 billion) tile positions and rotations. This is because each tile can be in one of nine positions (<code>9!</code>) and each tile can be rotated in each position four different ways (<code>4<sup>9</sup></code>), and <code>9! * 4<sup>9</sup> = 95,126,814,720</code>).
+<p>
+Of course, a human player won't try nine billion different combinations, because many combinations cannot produce a solution, and there is no need to permute tiles in one part of the board when other parts of the board are already incorrect. When you write your solution, you should also take this into consideration -- even though computers are fast, your solution should not continue to search in a particular way if a solution down that search path can never be found.
+<p>
+Matching tiles do not have to be strictly image-based. For example, the puzzle below is solved by matching up numbers in combinations that add up to 10. So, for example, a matching set of edges would have a 3 and a 7 (the puzzle below is not solved, though it does have some matching edges):<p>
+<div style="text-align: center">
+    <img src="/cs/example_cs2_website/static/img/assignments/edge_matching/unsolved_tens.png" style="width:40%"></td>
+</div>
+<p>
+Your solution will populate a <code>Vector&lt;Tile&gt;</code> with all of the possible solutions for a particular puzzle. Note that the number of solutions for a puzzle will always be a multiple of four, as each full puzzle can simply be rotated 90&deg;.<p>
+
+For your solution, you will be able to run the program in two different ways: the first is to find the solutions one at a time, and show them graphically (also populating the solutions vector). The second is to time how long it takes to find all possible solutions for a given set of tiles. You should strive to make your solution as fast (or faster!) than our solution, and we will provide you with sample times to compare against.
+
+<h2>Implementation Details</h2>
+In order to describe an edge, we must decide on a code that can be used to differentiate edges, and to describe two edges that match. We have chosen an uppercase and lowercase representation for each edge, such that a matching edge will have an uppercase letter on one tile's edge (e.g., "A") and a lowercase letter on the other tile's matching edge (e.g., "a"). As an example, the following tiles have been labeled. The letters themselves are arbitrary, but must be the same code for each tile in a particular puzzle. In this case, a yellow top is "A", yellow bottom is "a", green top is "B", green bottom is "b", etc. <p>
+<table style="text-align: center;">
+    <tr>
+        <td>Tile 1</td>
+        <td>Tile 2</td>
+    </tr>
+    <tr>
+        <td><img src="/cs/example_cs2_website/static/img/assignments/edge_matching/AcdB_labeled.png" style="width:80%"></td>
+        <td><img src="/cs/example_cs2_website/static/img/assignments/edge_matching/baCD_labeled.png" style="width:80%"></td>
+    </tr>
+</table>
+
+Using this code, we can describe a single tile with four edge letters. Starting with the top of the tile, and then progresing <i>clockwise</i>, tiles 1 and 2 above can be labeled as follows:
+<p>
+Tile 1:
+<pre>
+A c d B
+</pre>
+<p>
+Tile 2:
+<pre>
+b a C D
+</pre>
+<p>
+We can also add an orientation, based on how many times the tile has been rotated in a clockwise direction. Each of the above tiles has orientation <code>0</code>, but we could rotate Tile 1 once (as shown below) and it would now be represented by <code>A c d B 1</code>:<p>
+<img src="/cs/example_cs2_website/static/img/assignments/edge_matching/AcdB1_labeled.png" style="width:20%">
+<p>
+
+Although the tile could also be labeled starting with <code>B</code> instead of adding an orientation, we will keep the original labeling and use the orientation to describe how the tile has been rotated.
+<p>
+You must implement the following functions to complete the puzzle solver. Some of the functions are in the <code>Tile.cpp</code> file (and the <code>Tile</code> class, and others are in the <code>tile-match.cpp</code> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
+<pre>
+Tile::<strong>Tile</strong>(string s)
+</pre>
+<ul>
+    <li>
+        Implement the constructor for a <code>Tile</code> that accepts a string in <i>either</i> of the following forms:
+        <pre>
+    A b C d
+</pre>
+        <p>
+        or
+        <p>
+        <pre>
+    A b C d 2
+</pre>
+        <p>
+        In other words, the rotation is optional. If there is no rotation, the default rotation will be <code>0</code>. We have written the default constructor for you, so you can see what is expected from the constructor you will write.
+        <p>
+        Note: the order of the letters in the string should not be modified. In other words, the string <code>"A b C d 2"</code> should be represented as top:<code>A</code>, right:<code>b</code>, bottom:<code>C</code>, and left:<code>d</code>, with a rotation of 2, clockwise. When shown, that tile would have <code>C</code> on the top, <code>d</code> on the right, <code>A</code> on the bottom, and <code>b</code> on the left.
+        <p>
+    </li>
+</ul>
+<pre>
+int Tile::<b>getOrientation</b>()
+
+void Tile::<b>setOrientation</b>(int orientation)
+</pre>
+<ul>
+    <li>
+        These two helper functions simply get and set the orientation.
+    </li>
+</ul>
+<pre>
+bool Tile::<b>isMatched</b>(Tile &other, Connection otherLocation)
+</pre>
+<ul>
+    <li>The <code>isMatched</code> function returns <code>true</code> if the <code>other</code> tile is a match in the location relative to the tile being checked. The <code>Connection</code> type is an <code>enum</code>, defined in <code>Tile.h</code> as follows:<p>
+        <pre>
+enum <b>Connection</b> {
+    ABOVE,
+    RIGHT,
+    BELOW,
+    LEFT,
+};
+</pre>
+        <p>
+        So, if a <code>Tile t</code> instance was called as follows:
+       <pre>
+t.<b>isMatched</b>(otherTile, ABOVE)
+</pre>
+then the function would return <code>true</code> if <code>otherTile</code> matches <code>t</code> when <code>otherTile</code> is above <code>t</code> in the grid.
+        <p>
+    </li>
+</ul>
+<pre>
+string Tile::<b>sidesStr</b>() const;
+</pre>
+<ul>
+    <li>The <code>sideStr</code> function should return a string in the form <code>"AbCd"</code>. This string is used to identify a tile, and <i>does not</i> include information about the orientation of the tile.
+    </li>
+</ul>
+<pre>
+ostream &operator<b>&lt;&lt;</b>(ostream &out, Tile const &tile)
+</pre>
+<ul>
+    <li>The overloaded <code>&lt;&lt;</code> function is similar to <code>sidesStr</code>, but it is formatted with spaces and includes the orientation. It should output a string in the form <code>"A b C d (2)"</code>. Once you have overloaded this function, you will be able to use <code>cout</code> to print out a <code>Vector&lt;Tile&gt;</code> or <code>Grid&lt;Tile&gt;</code>, and this may be helpful to you as you debug your program.
+    </li>
+</ul>
+<pre>
+bool <b>allMatch</b>(Grid<Tile> &tiles);
+</pre>
+<ul>
+    <li>
+        This function, located in <code>tile-match.cpp</code> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
+    </li>
+</ul>
+<pre>
+Vector&lt;Grid&lt;Tile&gt;&gt; <b>solvePuzzle</b>(TileGrid &tg, bool timeIt = false);
+</pre>
+<ul>
+    <li>
+        This function, located in <code>tile-match.cpp</code> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
+        If the <code>timeIt</code> parameter is <code>true</code>, your function should suppress output, drawing tiles, and asking for user input. In other words, it should solve the puzzle as quickly as it can.<p>
+        If the <code>timeIt</code> parameter is <code>false</code>, your function should draw each solved puzzle it finds (see below for the function to draw the tiles), and it should also ask the user if they want to save the solved board to a file. See below for examples of user input and output to see how you should format the user interface for your solver function.
+        <p>
+        This is the only function that will require you to interact with the <code>TileGrid</code> class, which keeps track of a <code>Grid&lt;Tile&gt;</code>. There are five functions you will need from the <code>Grid&lt;Tile&gt;</code> class. This class, which we have written for you, handles the graphical interface with the tiles, and holds the <code>Grid&lt;Tile&gt;</code>. Notice that the <code>getGrid</code> function below returns a <b>reference</b> to a Grid -- this is important to ensure that the <code>TileGrid</code> instance can draw and save the tiles:
+        <pre>
+Vector&lt;Tile&gt; TileGrid::<b>getTileVec</b>();
+</pre>
+        <ul>
+            <li>
+                This function returns a vector of all the tiles in the game.
+            </li>
+        </ul>
+        <p>
+        <pre>
+Grid&lt;Tile&gt; & TileGrid::<b>getGrid</b>();
+</pre>
+        <ul>
+            <li>
+                This function returns a reference to the Grid of Tiles.
+            </li>
+        </ul>
+        <p>
+        <pre>
+void TileGrid::<b>drawTiles</b>();
+</pre>
+        <ul>
+            <li>
+                This function draws the tiles to the screen. You should call this in your recursive <code>solvePuzzle</code> function every time you have a completed puzzle (but only if you are not timing your solver -- you don't want to take time drawing the grid on the screen when you are trying to see how fast your solver works).
+            </li>
+        </ul>
+        <p>
+        <pre>
+bool TileGrid::<b>saveGrid</b>(string filename);
+</pre>
+        <ul>
+            <li>
+                This function saves the tile grid to a file, in the form:
+                <pre>
+A b C d 2
+B a D c 3
+...etc
+</pre>
+                Saved files can be loaded with the <code>TileGrid::populate</code> function, which is used in the <code>loadPuzzle</code> function, which has already been written for you.
+            </li>
+        </ul>
+        <p>
+        <pre>
+bool TileGrid::<b>toString</b>();
+</pre>
+        <ul>
+            <li>
+                This function prints the tile grid to the console, in the form:
+                <pre>
+A b C d 2
+B a D c 3
+...etc
+</pre>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Example Games</h2>
+<table style="text-align: center;">
+    <tr>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola1.txt"><span class="icon">browser:large</span><br>
+            Example 1: cola1.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: cola2.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: dogs1.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: dogs2.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: tens.txt 
+            </a>
+        </td>
+        <td style="padding: 10px;"><a href="/cs/example_cs2_website/static/examples/cola2.txt"><span class="icon">browser:large</span><br>
+            Example 2: penguins.txt 
+            </a>
+        </td>
+    </tr>
+</table>
+<h2>Style Details</h2>
+You should follow the course style guide for expected coding style. You should, as necessary, decompose your solution into short functions commensurate with the problem you are solving. The following information specifically relates to the style of this assignment:<p>
+
+<i>Recursion and Backtracking</i>: You must write a recursive function to solve the puzzle. You can write as many helper functions as you need for the solution, but you must use recursion, and likely recursive backtracking to solve the problem efficiently. Your solution should be efficient and should <i>not</i> follow paths that are guaranteed to not produce solutions. You must figure out how to do this, but your grade will depend on whether you have an efficient solution. You can see the example runs of the program above to see roughly how long a decent solution should take to find all solutions to a puzzle.<p>
+
+<i>Variables</i>: This is the first main assignment where you are using classes. You are allowed to add private instance variables to the <code>Tile</code> class, but you should not need to. You should <i>not</i> add any global variables, and you should use proper paramater passing strategies to move variables through your program.<p>
+
+<i>Commenting</i>: You should have a function comment at the top of each function. You should also have inline comments as necessary in your code, especially where your code may be difficult to understand without context.
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<b>Q: How do I run the example program?</b><p>
+A: On a Mac, you can click on the "run-tile-match.sh" file, and the program should open.<p>
+
+
+<b>Q: When I save a solved game in the program, where does it go?</b><p>
+
+A: The file is saved in the <code>build-tile-match...</code> folder, which is most likely one folder up from your <code>TileMatch</code> project folder. If you want to use your solution in future versions of the game, move it into the <code>puzzles/puzzleType/</code> (e.g., for a dogs puzzle, move it into the <code>puzzles/dogs/</code> folder. You can also move it into the folder in your project directory, but you will likely have to delete the <code>tile-match.pro</code> file and restart, re-build the tile-match program for it to automatically go into the build folder when you run the program again.<p>
+
+<b>Q: My recursive strategy should work, but the program never finishes!</b><p>
+
+A: You are probably not stopping the recursion when it goes down a path that is guaranteed to not produce a solution. Look at your recursive calls and play a few versions of the game manually to convince yourself that you aren't recursing too much.<p>
+
+<h2>Possible Extensions</h2>
+If you want to write one or more extensions for this assignment, here are some ideas:<br>
+<ul>
+    <li><b>Add a "hint" mode to the GUI game.</b> If you are playing manually, you can add a hint button to allow the user to get a tile placed automatically for them. This will involve modifying the <code>PlayGame</code> class. See the documentation for the <code>GButton</code> class to add a button to the window.</li>
+    <li><b>Change the <code>&lt;&lt;</code> overload function to print a text-based version of the tiles.</b> If the user is playing in text mode, without graphics, it might be nice to have a function that will print the tile out in a more user-friendly way. You can also add a function to the <code>TileGrid</code> class to print the entire grid in text-based form.</li>
+    <li><b>Add your own tiles.</b> In the <code>puzzles</code> folder, you will find individual puzzle folders (e.g., <code>dogs</code>), which have images and a basic text file with the starting tile orientations. If you want, you can make your own puzzles by breaking up an image into multiple tiles. See <a href="http://www.penguin.com/static/packages/us/yr-microsites/crazygamesolution/">here for many solved puzzles you can break up.</a> You will need a graphics program, such as <a href="https://www.gimp.org">Gimp</a> (free) or Photoshop ($) to break up the images. In Gimp, you can follow the instructions <a href="https://graphicdesign.stackexchange.com/a/30012">here</a> to easily break an image into tiles.</li>
+    <li><b>Expand the game to include 4x4 grids, or 2x2 grids (or more).</b> This will take some work in the <code>TileGrid.h</code> header and <code>Tile-Grid.cpp</code> class, but it is doable. If you write your <code>Tile</code> class efficiently, you should not need to update it.</li>
+</ul>
+
+        </div>
+        <hr>
+<center>
+    Website design based on a design by Chris Piech<br>
+    Icons by <a href="http://ikons.piotrkwiatkowski.co.uk">Piotr Kwiatkowski</a>
+</center>
+    </body>
+</html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type = "text/javascript" src = "/cs/example_cs2_website/static/bootstrap/js/bootstrap.min.js"></script>
+<script type = "text/javascript" src = "/cs/example_cs2_website/static/js/jquery.timeago.js"></script>
+<script type = "text/javascript" src = "/cs/example_cs2_website/static/js/website.js"></script>
+<script type = "text/javascript"> websiteInit(); </script>

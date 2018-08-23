@@ -13,7 +13,7 @@ def about():
 def schedule():
     return render_template('schedule.html')
 
-@app.route('/assignents/')
+@app.route('/assignments/')
 @app.route('/assignments/<path:assign>/')
 def assignments(assign=None):
     print(request.script_root)
