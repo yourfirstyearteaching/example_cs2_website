@@ -187,7 +187,7 @@ We can also add an orientation, based on how many times the tile has been rotate
 
 Although the tile could also be labeled starting with <code>B</code> instead of adding an orientation, we will keep the original labeling and use the orientation to describe how the tile has been rotated.
 <p>
-You must implement the following functions to complete the puzzle solver. Some of the functions are in the <code>Tile.cpp</code> file (and the <code>Tile</code> class, and others are in the <code>edge-match.cpp</code> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
+You must implement the following functions to complete the puzzle solver. Some of the functions are in the <span class="filename">Tile.cpp</span> file (and the <code>Tile</code> class, and others are in the <span class="filename">edge-match.cpp</span> file and are not associated with a class. You do not have to modify the <code>PlayGame</code> class or the <code>TileGrid</code> class, although you will have to use functions from the <code>TileGrid</code> class.<p>
 <pre>
 Tile::<strong>Tile</strong>(string s)
 </pre>
@@ -224,7 +224,7 @@ void Tile::<b>setOrientation</b>(int orientation)
 bool Tile::<b>isMatched</b>(Tile &other, Connection otherLocation)
 </pre>
 <ul>
-    <li>The <code>isMatched</code> function returns <code>true</code> if the <code>other</code> tile is a match in the location relative to the tile being checked. The <code>Connection</code> type is an <code>enum</code>, defined in <code>Tile.h</code> as follows:<p>
+    <li>The <code>isMatched</code> function returns <code>true</code> if the <code>other</code> tile is a match in the location relative to the tile being checked. The <code>Connection</code> type is an <code>enum</code>, defined in <span class="filename">Tile.h</span> as follows:<p>
         <pre>
 enum <b>Connection</b> {
     ABOVE,
@@ -261,7 +261,7 @@ bool <b>allMatch</b>(Grid<Tile> &tiles);
 </pre>
 <ul>
     <li>
-        This function, located in <code>edge-match.cpp</code> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
+        This function, located in <span class="filename">edge-match.cpp</span> returns <code>true</code> for a solved puzzle. You may want to consider what is minimally necessary to determine if a puzzle is solved, and only do as much work as is necessary.
     </li>
 </ul>
 <pre>
@@ -269,7 +269,7 @@ Vector&lt;Grid&lt;Tile&gt;&gt; <b>solvePuzzle</b>(TileGrid &tg, bool timeIt = fa
 </pre>
 <ul>
     <li>
-        This function, located in <code>edge-match.cpp</code> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
+        This function, located in <span class="filename">edge-match.cpp</span> returns a vector of solved puzzle grids. <b>You will also need to write a recursive helper function that this function calls.</b> You are responsible for detemining the parameters of your helper function.<p>
         If the <code>timeIt</code> parameter is <code>true</code>, your function should suppress output, drawing tiles, and asking for user input. In other words, it should solve the puzzle as quickly as it can.<p>
         If the <code>timeIt</code> parameter is <code>false</code>, your function should draw each solved puzzle it finds (see below for the function to draw the tiles), and it should also ask the user if they want to save the solved board to a file. See below for examples of user input and output to see how you should format the user interface for your solver function.
         <p>
@@ -389,7 +389,7 @@ If you want to write one or more extensions for this assignment, here are some i
     <li><b>Add a "hint" mode to the GUI game.</b> If you are playing manually, you can add a hint button to allow the user to get a tile placed automatically for them. This will involve modifying the <code>PlayGame</code> class. See the documentation for the <code>GButton</code> class to add a button to the window.</li>
     <li><b>Change the <code>&lt;&lt;</code> overload function to print a text-based version of the tiles.</b> If the user is playing in text mode, without graphics, it might be nice to have a function that will print the tile out in a more user-friendly way. You can also add a function to the <code>TileGrid</code> class to print the entire grid in text-based form.</li>
     <li><b>Add your own tiles.</b> In the <code>puzzles</code> folder, you will find individual puzzle folders (e.g., <code>dogs</code>), which have images and a basic text file with the starting tile orientations. If you want, you can make your own puzzles by breaking up an image into multiple tiles. See <a href="http://www.penguin.com/static/packages/us/yr-microsites/crazygamesolution/">here for many solved puzzles you can break up.</a> You will need a graphics program, such as <a href="https://www.gimp.org">Gimp</a> (free) or Photoshop ($) to break up the images. In Gimp, you can follow the instructions <a href="https://graphicdesign.stackexchange.com/a/30012">here</a> to easily break an image into tiles.</li>
-    <li><b>Expand the game to include 4x4 grids, or 2x2 grids (or more).</b> This will take some work in the <code>TileGrid.h</code> header and <code>Tile-Grid.cpp</code> class, but it is doable. If you write your <code>Tile</code> class efficiently, you should not need to update it.</li>
+    <li><b>Expand the game to include 4x4 grids, or 2x2 grids (or more).</b> This will take some work in the <span class="filename">TileGrid.h</span> header and <span class="filename">Tile-Grid.cpp</span> class, but it is doable. If you write your <code>Tile</code> class efficiently, you should not need to update it.</li>
 </ul>
 
         </div>
