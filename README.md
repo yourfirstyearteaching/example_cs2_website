@@ -9,7 +9,7 @@ To set up a static website, perform the following steps:
 1. Install the necessary python3 requirements (the site should work with python2 if the shebang line in the python scripts are changed to `#!/usr/bin/env python2`:
 ```
 pip3 install flask
-pip3 install flask_frozen
+pip3 install Frozen-Flask
 ```
 
 1. Clone this repository into a `WWW`, `www`, or `public_html` folder on a server, and `cd` into that folder. *(Note: this will put the basic website into your WWW folder, which may not be empty -- you should clone into an empty directory)* E.g.:
